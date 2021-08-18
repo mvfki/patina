@@ -1,0 +1,5 @@
+build/*
+dist/*
+flask_session/*
+patina.egg-info/*
+patina/__pycache__/*
