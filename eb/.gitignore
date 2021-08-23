@@ -1,9 +1,7 @@
-build/*
-dist/*
+__pycache__/*
 flask_session/*
-patina.egg-info/*
-patina/__pycache__/*
-
+virt/*
+*.zip
 # Elastic Beanstalk Files
 .elasticbeanstalk/*
 !.elasticbeanstalk/*.cfg.yml

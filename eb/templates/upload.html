@@ -2,11 +2,11 @@
 <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/style.css') }}">
 
 <title>Patina Generator</title>
-<h2>Patina Generator</h2>
+<h2>Patina电子包浆生成器</h2>
 
 
 
-<h4>1. Select an Image to Upload</h4>
+<h4>1. 选择图片文件上传</h4>
 <div>
 	{% with messages = get_flashed_messages() %}
 	  {% if messages %}
@@ -19,12 +19,12 @@
 	{% endwith %}
 </div>
 <div class="contentupload">
-	<form method="post" action="/patina" enctype="multipart/form-data">
+	<form method="post" action="/" enctype="multipart/form-data">
 		<p>
 			<input id="fileupload" type="file" name="file" autocomplete="off" required>
 		</p>
 	    <p>
-			<input id="filesubmit" type="submit" value="Upload">
+			<input id="filesubmit" type="submit" value="上传">
 		</p>
 	</form>
 </div>

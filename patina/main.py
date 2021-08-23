@@ -75,11 +75,11 @@ def read_image_to_array(file):
     img = cv2.imdecode(file_bytes, cv2.IMREAD_UNCHANGED)
     return img
 
-def start_web_app(port=2333, debug=True):
+def start_web_app(port=2333, debug=True, host=None):
     Session(app)
     sess = Session()
     sess.init_app(app)
-    app.run(port=port, debug=debug, host="0.0.0.0")
+    app.run(port=port, debug=debug, host=host)
 
 if __name__ == "__main__":
     start_web_app()
