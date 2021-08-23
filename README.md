@@ -10,17 +10,37 @@ A simulator of the fact that old Android OS make the images greener due to a bug
 
 ## Web App
 
-暂时没有部署在互联网上，要启动网页小应用的话，请先下载此包并安装在本地。(之后还是会尝试短租个服务器试试部署这个工具）
-在CMD/terminal等终端运行：
+**=> [Patina Generator](http://www.patinagenerator.com/)**
 
+可尝试在本地启动网页应用的服务器，请先下载此包。
 ```
 git clone https://github.com/mvfki/patina.git
 cd patina
+```
+
+### 方法一
+
+进入AWS EB的部署配置文件夹，在CMD/terminal等终端运行：
+
+```
+cd eb
+python application.py
+```
+
+然后复制提示的网址进浏览器即可
+
+### 方法二（老版本）
+
+安装在本地，在CMD/terminal等终端运行：
+
+```
 python setup.py install
 patina
 ```
 
-然后复制提示的网址进浏览器即可（同Wi-Fi下的其它设备应该也可以）
+然后复制提示的网址进浏览器即可
+
+>同Wi-Fi下其它设备上浏览需在`application.run()`的命令中加上`host="0.0.0.0"`的参数
 
 ## API
 
@@ -31,7 +51,14 @@ patina
 - `patina.webfig`，包含：
 	- 将`np.ndarray`形式的图像转化成base64 string，可在HTML网页的`<img>`标记中的直接作为`source`显示`array_to_base64()`
 	- 将上述结果的base64 string转换回`np.ndarray`形式的图像`base64_to_array()`
+	
+	(base64方法在尝试部署至AWS EB的时候已经废弃，因为会造成过大cookies header导致Error 502，不过函数仍保留在package中)
 
 ## News
 
-- Aug 18, 2021. Initial commit for a completed integrity of this package.
+#### Aug 23, 2021
+- Deployed Application on Amazon AWS Elastic Beanstalk. Configuration is in `eb/` folder.
+- Abandoned the imgage display method with base64 strings and changed to using static files, with APScheduler helping to delete them. 
+
+#### Aug 18, 2021 
+- Initial commit for a completed integrity of this package.
